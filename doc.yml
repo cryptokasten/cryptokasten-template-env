@@ -1,8 +1,12 @@
-type: "lab"
-id: "test"
-title: "Test lab"
-description: "Test lab description"
+type: "env"
+id: "redis-labs-env"
+title: "Redis labs env"
+description: "Redis environment for experiments"
 tags:
   - cryptokasten
+  - redis
+docker:
+  image: "redis"
+  version: "6.0.9-buster"
 #related:
 #  -

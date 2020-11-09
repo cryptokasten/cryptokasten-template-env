@@ -11,11 +11,15 @@ Template for cryptokasten Env.
 
 #+BEGIN_SRC yaml :tangle doc.yml
 type: "env"
-id: "test"
-title: "Test env"
-description: "Test env description"
+id: "redis-labs-env"
+title: "Redis labs env"
+description: "Redis environment for experiments"
 tags:
   - cryptokasten
+  - redis
+docker:
+  image: "redis"
+  version: "6.0.9-buster"
 #related:
 #  - 
 #+END_SRC
@@ -39,7 +43,7 @@ env.close()
 
 CHECK REPO NAME!
 
-#+BEGIN_SRC sh :session *shell cryptokasten-template-env:shell*
+#+BEGIN_SRC sh :session *shell cryptokasten-template-env:shell* :results silent raw
 . .env
 export GIT_DIR="$REPO/.git"
 export GIT_WORK_TREE="$REPO"
@@ -56,6 +60,6 @@ docker run --rm \
 
 #+RESULTS: created
 #+BEGIN_SRC python
-(find-file "~/data/cryptokasten/Lab/test")
+(find-file "~/data/cryptokasten/Lab/redis-labs-env")
 #+END_SRC
 

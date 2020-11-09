@@ -1,7 +1,10 @@
 #+TITLE: {{ doc.title }}
+#+DESCRIPTION: {{ doc.description }}
 #+TAGS: {{ doc.tags | join(", ") }}
 #+PROPERTY: header-args :session *shell {{ doc.id }}* :results silent raw
 #+OPTIONS: ^:nil
+
+{{ doc.description }}
 
 [[https://github.com/cryptokasten][file:https://img.shields.io/badge/dynamic/json.svg?url=https://api.github.com/users/cryptokasten&label=Cryptokasten&query=$.public_repos]]
 [[https://github.com/cryptokasten-env][file:https://img.shields.io/badge/env-red.svg]]
@@ -9,7 +12,7 @@
 ** Dockerfile
 *** Base docker image
 
-[[https://hub.docker.com/r/{{ doc.docker.image }}/][{{ doc.docker.images }}:{{ doc.docker.version }}]]
+[[https://hub.docker.com/r/{% if "/" not in doc.docker.image %}_/{% endif %}{{ doc.docker.image }}/][{{ doc.docker.image }}:{{ doc.docker.version }}]]
 
 #+BEGIN_SRC Dockerfile :tangle Dockerfile
 FROM {{ doc.docker.image }}:{{ doc.docker.version }}
